@@ -33,7 +33,12 @@ io.on("connection", (socket) => {
     // * Here below I am receiving a event from frontend to the backend 
     socket.on("welcome" , (payload) => {
         console.log(payload);
-    })
+    });
+
+
+    socket.on("disconnect" , () => {
+        console.log("User Disconnected : " , socket.id);
+    }); // ? Here disconnect is a pre build event and I will be triggering it in the frontend 
 })
 
 server.listen(port, () => {
